@@ -246,10 +246,8 @@ nav {
 
 /* ── INBRAX ── */
 #inbrax { padding:100px 0; background:var(--card); }
-.inbrax-grid { display:grid; grid-template-columns:1fr; gap:64px; }
-@media(min-width:1024px){ .inbrax-grid{grid-template-columns:360px 1fr; align-items:start; gap:80px;} }
-.inbrax-photo { border-radius:20px; overflow:hidden; aspect-ratio:4/3; }
-.inbrax-photo img { width:100%; height:100%; object-fit:cover; }
+.inbrax-grid { display:grid; grid-template-columns:1fr; gap:48px; max-width:980px; margin:0 auto; }
+@media(min-width:768px){ .inbrax-grid{grid-template-columns:1fr 1fr; align-items:center;} }
 .inbrax-content h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3vw,2.8rem); font-weight:700; line-height:1.2; margin:12px 0 16px; }
 .inbrax-content p { font-size:.95rem; color:var(--muted-fg); line-height:1.75; margin-bottom:32px; }
 .inbrax-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:40px; }

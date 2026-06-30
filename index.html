@@ -16,14 +16,14 @@
   --bg:       #f5f1e8;
   --fg:       #1e1c17;
   --card:     #faf8f3;
-  --muted:    #ede8dc;
-  --muted-fg: #635d54;
+  --muted:    #dde1f0;
+  --muted-fg: #3d4466;
   --charcoal: #1e1c17;
-  --bronze:   #8b7355;
-  --bronze-s: #b09070;
+  --bronze:   #0d1235;
+  --bronze-s: #1e2d6b;
   --sunset:   #c0614a;
-  --blue:     #252440;
-  --border:   rgba(30,28,23,.08);
+  --blue:     #080d1e;
+  --border:   rgba(13,18,53,.10);
   --sh-el:    0 30px 80px -40px rgba(30,28,23,.40);
   --sh-so:    0 10px 30px -15px rgba(30,28,23,.25);
 }
@@ -38,7 +38,7 @@ body {
 }
 img { display:block; max-width:100%; }
 a { color:inherit; text-decoration:none; }
-::selection { background:rgba(139,115,85,.25); color:var(--charcoal); }
+::selection { background:rgba(13,18,53,.25); color:var(--charcoal); }
 
 .serif  { font-family:'Playfair Display',Georgia,serif; }
 .eyebrow {
@@ -189,9 +189,9 @@ nav {
 @media(min-width:768px){ .plantas-grid{grid-template-columns:repeat(2,1fr); gap:40px;} }
 .planta-item { display:flex; flex-direction:column; gap:32px; }
 @media(min-width:768px){ .planta-item{flex-direction:row; gap:32px; align-items:center;} }
-.planta-img-wrap { border-radius:20px; overflow:hidden; flex:0 0 auto; width:100%; background:var(--muted); min-height:280px; display:flex; align-items:center; justify-content:center; padding:20px; }
+.planta-img-wrap { border-radius:20px; overflow:hidden; flex:0 0 auto; width:100%; background:var(--muted); display:flex; align-items:center; justify-content:center; padding:16px; }
 @media(min-width:768px){ .planta-img-wrap{width:46%;} }
-.planta-img-wrap svg { width:100%; height:auto; max-width:260px; }
+.planta-img-wrap img { width:100%; height:auto; border-radius:12px; object-fit:contain; }
 .planta-info { flex:1; }
 .planta-tag { display:inline-block; padding:5px 14px; border-radius:99px; background:var(--muted); font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--bronze); margin-bottom:16px; }
 .planta-name { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; line-height:1.15; margin-bottom:10px; }
@@ -289,7 +289,7 @@ nav {
   font-family:'Inter',sans-serif; font-size:.95rem; color:var(--fg);
   transition:border-color .2s, box-shadow .2s; outline:none;
 }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--bronze); box-shadow:0 0 0 3px rgba(139,115,85,.12); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--bronze); box-shadow:0 0 0 3px rgba(13,18,53,.12); }
 .form-group textarea { min-height:100px; resize:vertical; }
 .form-submit {
   width:100%; padding:16px; border-radius:9999px;
@@ -494,16 +494,7 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
     <div class="plantas-grid">
       <div class="planta-item">
         <div class="planta-img-wrap">
-          <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#8b7355" stroke-width="1.5">
-            <rect x="20" y="20" width="200" height="200" rx="4"/>
-            <line x1="20" y1="120" x2="140" y2="120"/>
-            <line x1="140" y1="20" x2="140" y2="220"/>
-            <line x1="140" y1="140" x2="220" y2="140"/>
-            <text x="80" y="75" font-family="Inter" font-size="9" fill="#635d54">QUARTO 1</text>
-            <text x="80" y="175" font-family="Inter" font-size="9" fill="#635d54">QUARTO 2</text>
-            <text x="170" y="80" font-family="Inter" font-size="9" fill="#635d54">SALA</text>
-            <text x="160" y="185" font-family="Inter" font-size="9" fill="#635d54">COZINHA</text>
-          </svg>
+          <img src="assets/Planta-smart.png" alt="Planta Apartamento Smart 54m²">
         </div>
         <div class="planta-info">
           <span class="planta-tag">Smart</span>
@@ -521,18 +512,7 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
       </div>
       <div class="planta-item">
         <div class="planta-img-wrap">
-          <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#8b7355" stroke-width="1.5">
-            <rect x="15" y="15" width="210" height="210" rx="4"/>
-            <line x1="15" y1="110" x2="130" y2="110"/>
-            <line x1="130" y1="15" x2="130" y2="225"/>
-            <line x1="130" y1="130" x2="225" y2="130"/>
-            <line x1="70" y1="15" x2="70" y2="110"/>
-            <text x="30" y="70" font-family="Inter" font-size="8" fill="#635d54">SUÍTE</text>
-            <text x="85" y="70" font-family="Inter" font-size="8" fill="#635d54">QUARTO</text>
-            <text x="40" y="175" font-family="Inter" font-size="9" fill="#635d54">QUARTO 3</text>
-            <text x="160" y="75" font-family="Inter" font-size="9" fill="#635d54">SALA</text>
-            <text x="155" y="180" font-family="Inter" font-size="9" fill="#635d54">COZINHA</text>
-          </svg>
+          <img src="assets/planta-garden.png" alt="Planta Apartamento Garden 76m²">
         </div>
         <div class="planta-info">
           <span class="planta-tag">Garden</span>

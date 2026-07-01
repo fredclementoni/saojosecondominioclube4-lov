@@ -183,6 +183,26 @@ nav {
 .carousel-icon { display:inline-flex; margin-bottom:10px; color:var(--bronze-s); }
 .carousel-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:#fff; }
 
+/* ── DECORADO ── */
+#decorado { padding:100px 0; background:var(--bg); }
+.decorado-intro { text-align:center; margin-bottom:56px; }
+.decorado-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:700; line-height:1.2; margin-top:12px; }
+.decorado-intro p { font-size:1rem; color:var(--muted-fg); line-height:1.75; max-width:580px; margin:16px auto 0; }
+.decorado-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+@media(min-width:768px){
+  .decorado-grid { grid-template-columns:repeat(3,1fr); gap:16px; }
+  .decorado-grid .decorado-feat { grid-column:span 2; }
+}
+.decorado-img { border-radius:16px; overflow:hidden; aspect-ratio:4/3; }
+.decorado-img.tall { aspect-ratio:3/4; }
+.decorado-feat { border-radius:16px; overflow:hidden; aspect-ratio:16/9; }
+.decorado-img img, .decorado-feat img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
+.decorado-img:hover img, .decorado-feat:hover img { transform:scale(1.04); }
+
 /* ── PLANTAS ── */
 #plantas { padding:100px 0; background:var(--card); }
 .plantas-intro { text-align:center; margin-bottom:72px; }

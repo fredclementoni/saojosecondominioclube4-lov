@@ -977,6 +977,46 @@ document.querySelectorAll('.torre-card, .fpvc-card, .lazer-card, .carousel-item,
 });
 
 if (window.lucide) lucide.createIcons();
+
+// ── LIGHTBOX ──
+(function(){
+  const imgs = Array.from(document.querySelectorAll('.decorado-bento .db img'));
+  const overlay = document.getElementById('lb');
+  const lbImg   = document.getElementById('lb-img');
+  const counter  = document.getElementById('lb-counter');
+  let cur = 0;
+
+  function open(idx){
+    cur = idx;
+    lbImg.src = imgs[cur].src;
+    counter.textContent = (cur+1) + ' / ' + imgs.length;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function go(dir){
+    cur = (cur + dir + imgs.length) % imgs.length;
+    lbImg.src = imgs[cur].src;
+    counter.textContent = (cur+1) + ' / ' + imgs.length;
+  }
+
+  document.querySelectorAll('.decorado-bento .db').forEach(function(el){
+    el.addEventListener('click', function(){ open(+el.dataset.idx); });
+  });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', function(){ go(-1); });
+  document.getElementById('lb-next').addEventListener('click', function(){ go(+1); });
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!overlay.classList.contains('open')) return;
+    if(e.key === 'ArrowLeft')  go(-1);
+    if(e.key === 'ArrowRight') go(+1);
+    if(e.key === 'Escape')     close();
+  });
+})();
 </script>
 </body>
 </html>

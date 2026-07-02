@@ -579,18 +579,30 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
       <h2 class="serif">Veja como fica na prática.</h2>
       <p>O apartamento decorado do São José Condomínio Clube mostra cada detalhe do acabamento premium — do piso ao teto, da cozinha americana à varanda com vista.</p>
     </div>
-    <div class="decorado-grid">
-      <div class="decorado-feat"><img src="assets/decorado-sj1-1.png" alt="Decorado São José" loading="lazy"></div>
-      <div class="decorado-img"><img src="assets/decorado-sj1-2.jpg" alt="Decorado São José" loading="lazy"></div>
-      <div class="decorado-img"><img src="assets/decorado-sj1-3.png" alt="Decorado São José" loading="lazy"></div>
-      <div class="decorado-img"><img src="assets/decorado-sj1-4.jpg" alt="Decorado São José" loading="lazy"></div>
-      <div class="decorado-img"><img src="assets/decorado-sj1-5.jpg" alt="Decorado São José" loading="lazy"></div>
-      <div class="decorado-img"><img src="assets/decorado-sj1-6.png" alt="Decorado São José" loading="lazy"></div>
-      <div class="decorado-img"><img src="assets/decorado-sj1-7.jpg" alt="Decorado São José" loading="lazy"></div>
-      <div class="decorado-img"><img src="assets/decorado-sj1-8.jpg" alt="Decorado São José" loading="lazy"></div>
+    <!-- bento: 8 imagens, layout variado -->
+    <div class="decorado-bento">
+      <div class="db big"  data-idx="0"><img src="assets/decorado-sj1-1.png" alt="Decorado São José" loading="lazy"></div>
+      <div class="db tall" data-idx="1"><img src="assets/decorado-sj1-2.jpg" alt="Decorado São José" loading="lazy"></div>
+      <div class="db"      data-idx="2"><img src="assets/decorado-sj1-3.png" alt="Decorado São José" loading="lazy"></div>
+      <div class="db"      data-idx="3"><img src="assets/decorado-sj1-4.jpg" alt="Decorado São José" loading="lazy"></div>
+      <div class="db wide" data-idx="4"><img src="assets/decorado-sj1-5.jpg" alt="Decorado São José" loading="lazy"></div>
+      <div class="db"      data-idx="5"><img src="assets/decorado-sj1-6.png" alt="Decorado São José" loading="lazy"></div>
+      <div class="db"      data-idx="6"><img src="assets/decorado-sj1-7.jpg" alt="Decorado São José" loading="lazy"></div>
+      <div class="db wide" data-idx="7"><img src="assets/decorado-sj1-8.jpg" alt="Decorado São José" loading="lazy"></div>
     </div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb">
+  <button class="lb-close" id="lb-close">✕</button>
+  <button class="lb-arrow lb-prev" id="lb-prev">‹</button>
+  <div class="lb-wrap">
+    <img class="lb-img" id="lb-img" src="" alt="">
+  </div>
+  <button class="lb-arrow lb-next" id="lb-next">›</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
 
 <!-- PLANTAS -->
 <section id="plantas">

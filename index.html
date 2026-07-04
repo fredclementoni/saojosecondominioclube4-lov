@@ -571,28 +571,59 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
       <h2 class="serif">Lazer completo já está pronto para usar.</h2>
       <p>Uma estrutura pensada para transformar a rotina: descanso, convívio, saúde, família e momentos especiais no mesmo endereço.</p>
     </div>
-    <div class="lazer-grid">
-      <div class="lazer-card">
-        <img src="assets/lazer-piscina.png" alt="Piscina com hidromassagem">
-        <div class="lazer-body">
-          <h3 class="lazer-title serif">Piscina com hidro</h3>
-          <p class="lazer-text">Espelho d'água com hidromassagem para relaxar todos os dias com a melhor vista da cidade.</p>
+    <div class="lazer-carousel-wrap">
+      <button class="lazer-arr prev" id="lz-prev">‹</button>
+      <div class="lazer-track-outer">
+        <div class="lazer-track" id="lz-track">
+          <div class="lazer-card" data-lz="0">
+            <img src="assets/lazer-piscina.png" alt="Piscina com hidro">
+            <div class="lazer-body"><h3 class="lazer-title serif">Piscina com hidro</h3><p class="lazer-text">Espelho d'água com hidromassagem para relaxar todos os dias com a melhor vista da cidade.</p></div>
+          </div>
+          <div class="lazer-card" data-lz="1">
+            <img src="assets/lazer-academia.png" alt="Academia equipada">
+            <div class="lazer-body"><h3 class="lazer-title serif">Academia equipada</h3><p class="lazer-text">Espaço completo com equipamentos de primeira para treinar sem sair de casa.</p></div>
+          </div>
+          <div class="lazer-card" data-lz="2">
+            <img src="assets/lazer-sauna.png" alt="Sauna integrada">
+            <div class="lazer-body"><h3 class="lazer-title serif">Sauna integrada</h3><p class="lazer-text">Sauna conectada à área da piscina para um ritual completo de bem-estar.</p></div>
+          </div>
+          <div class="lazer-card" data-lz="3">
+            <img src="assets/lazer-salao.png" alt="Salão de Festas">
+            <div class="lazer-body"><h3 class="lazer-title serif">Salão de Festas</h3><p class="lazer-text">Comemore momentos incríveis neste espaço dedicado a você, família e amigos.</p></div>
+          </div>
+          <div class="lazer-card" data-lz="4">
+            <img src="assets/lazer-gourmet.png" alt="2 Espaços Gourmet">
+            <div class="lazer-body"><h3 class="lazer-title serif">2 Espaços Gourmet</h3><p class="lazer-text">Aquele churrasco no fim de semana está garantido com churrasqueira americana e forno de pizza.</p></div>
+          </div>
+          <div class="lazer-card" data-lz="5">
+            <img src="assets/lazer-brinquedo.png" alt="Brinquedoteca">
+            <div class="lazer-body"><h3 class="lazer-title serif">Brinquedoteca</h3><p class="lazer-text">As crianças vão amar se divertir e gastar toda energia com os brinquedos e passatempos.</p></div>
+          </div>
+          <div class="lazer-card" data-lz="6">
+            <img src="assets/lazer-bike.png" alt="Bicicletário">
+            <div class="lazer-body"><h3 class="lazer-title serif">Bicicletário</h3><p class="lazer-text">Para quem ama bike, aqui tem um espaço seguro e personalizado para você.</p></div>
+          </div>
+          <div class="lazer-card" data-lz="7">
+            <img src="assets/lazer-garagem1.png" alt="Garagem Térrea">
+            <div class="lazer-body"><h3 class="lazer-title serif">Garagem Térrea</h3><p class="lazer-text">Vagas de garagem no térreo do prédio.</p></div>
+          </div>
+          <div class="lazer-card" data-lz="8">
+            <img src="assets/lazer-garagem2.png" alt="Garagem Subsolo">
+            <div class="lazer-body"><h3 class="lazer-title serif">Garagem Subsolo</h3><p class="lazer-text">Vagas de garagem no subsolo.</p></div>
+          </div>
         </div>
       </div>
-      <div class="lazer-card">
-        <img src="assets/lazer-academia.png" alt="Academia equipada">
-        <div class="lazer-body">
-          <h3 class="lazer-title serif">Academia equipada</h3>
-          <p class="lazer-text">Espaço completo com equipamentos de primeira para treinar sem sair de casa.</p>
-        </div>
-      </div>
-      <div class="lazer-card">
-        <img src="assets/lazer-sauna.png" alt="Sauna integrada">
-        <div class="lazer-body">
-          <h3 class="lazer-title serif">Sauna integrada</h3>
-          <p class="lazer-text">Sauna conectada à área da piscina para um ritual completo de bem-estar.</p>
-        </div>
-      </div>
+      <button class="lazer-arr next" id="lz-next">›</button>
+    </div>
+
+    <!-- LAZER LIGHTBOX -->
+    <div class="lzlb" id="lzlb">
+      <button class="lzlb-close" id="lzlb-close">✕</button>
+      <button class="lzlb-arrow prev" id="lzlb-prev">‹</button>
+      <img class="lzlb-img" id="lzlb-img" src="" alt="">
+      <div class="lzlb-caption"><h3 id="lzlb-title"></h3><p id="lzlb-desc"></p></div>
+      <button class="lzlb-arrow next" id="lzlb-next">›</button>
+      <div class="lzlb-counter" id="lzlb-counter"></div>
     </div>
   </div>
 </section>

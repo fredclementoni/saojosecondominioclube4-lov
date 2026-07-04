@@ -1035,6 +1035,75 @@ document.querySelectorAll('.torre-card, .fpvc-card, .lazer-card, .carousel-item,
 
 if (window.lucide) lucide.createIcons();
 
+// ── LAZER CAROUSEL + LIGHTBOX ──
+(function(){
+  var cards = Array.from(document.querySelectorAll('.lazer-card'));
+  var track = document.getElementById('lz-track');
+  var total = cards.length;
+  var cur = 0;
+  var visible = window.innerWidth < 768 ? 1 : 3;
+
+  function getStep(){ return cards[0] ? cards[0].offsetWidth + 24 : 0; }
+
+  function goTo(idx){
+    var max = total - visible;
+    cur = Math.max(0, Math.min(idx, max));
+    track.style.transform = 'translateX(-' + (cur * getStep()) + 'px)';
+  }
+
+  document.getElementById('lz-prev').addEventListener('click', function(){ goTo(cur - 1); });
+  document.getElementById('lz-next').addEventListener('click', function(){ goTo(cur + 1); });
+  window.addEventListener('resize', function(){
+    visible = window.innerWidth < 768 ? 1 : 3;
+    goTo(cur);
+  });
+
+  // lazer data
+  var lzData = cards.map(function(c){
+    return {
+      src: c.querySelector('img').src,
+      title: c.querySelector('.lazer-title') ? c.querySelector('.lazer-title').textContent : '',
+      desc: c.querySelector('.lazer-text') ? c.querySelector('.lazer-text').textContent : ''
+    };
+  });
+  var lzlb = document.getElementById('lzlb');
+  var lzImg = document.getElementById('lzlb-img');
+  var lzTitle = document.getElementById('lzlb-title');
+  var lzDesc = document.getElementById('lzlb-desc');
+  var lzCount = document.getElementById('lzlb-counter');
+  var lzCur = 0;
+
+  function lzOpen(idx){
+    lzCur = idx;
+    lzImg.src = lzData[lzCur].src;
+    lzTitle.textContent = lzData[lzCur].title;
+    lzDesc.textContent = lzData[lzCur].desc;
+    lzCount.textContent = (lzCur+1) + ' / ' + total;
+    lzlb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function lzClose(){ lzlb.classList.remove('open'); document.body.style.overflow = ''; }
+  function lzGo(dir){
+    lzCur = (lzCur + dir + total) % total;
+    lzImg.src = lzData[lzCur].src;
+    lzTitle.textContent = lzData[lzCur].title;
+    lzDesc.textContent = lzData[lzCur].desc;
+    lzCount.textContent = (lzCur+1) + ' / ' + total;
+  }
+
+  cards.forEach(function(c){ c.addEventListener('click', function(){ lzOpen(+c.dataset.lz); }); });
+  document.getElementById('lzlb-close').addEventListener('click', lzClose);
+  document.getElementById('lzlb-prev').addEventListener('click', function(){ lzGo(-1); });
+  document.getElementById('lzlb-next').addEventListener('click', function(){ lzGo(+1); });
+  lzlb.addEventListener('click', function(e){ if(e.target === lzlb) lzClose(); });
+  document.addEventListener('keydown', function(e){
+    if(!lzlb.classList.contains('open')) return;
+    if(e.key==='ArrowLeft') lzGo(-1);
+    if(e.key==='ArrowRight') lzGo(+1);
+    if(e.key==='Escape') lzClose();
+  });
+})();
+
 // ── LIGHTBOX ──
 (function(){
   const imgs = Array.from(document.querySelectorAll('.decorado-bento .db img'));

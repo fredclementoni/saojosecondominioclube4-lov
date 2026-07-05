@@ -999,37 +999,21 @@ document.querySelectorAll('.torre-card, .fpvc-card, .lazer-card, .carousel-item,
 
 if (window.lucide) lucide.createIcons();
 
-// ── LAZER CAROUSEL + LIGHTBOX ──
+// ── LAZER LIGHTBOX ──
 (function(){
-  var cards = Array.from(document.querySelectorAll('.lazer-card'));
-  var track = document.getElementById('lz-track');
-  var total = cards.length;
-  var cur = 0;
-  var visible = window.innerWidth < 768 ? 1 : 3;
-
-  function getStep(){ return cards[0] ? cards[0].offsetWidth + 24 : 0; }
-
-  function goTo(idx){
-    var max = total - visible;
-    cur = Math.max(0, Math.min(idx, max));
-    track.style.transform = 'translateX(-' + (cur * getStep()) + 'px)';
-  }
-
-  document.getElementById('lz-prev').addEventListener('click', function(){ goTo(cur - 1); });
-  document.getElementById('lz-next').addEventListener('click', function(){ goTo(cur + 1); });
-  window.addEventListener('resize', function(){
-    visible = window.innerWidth < 768 ? 1 : 3;
-    goTo(cur);
-  });
-
-  // lazer data
-  var lzData = cards.map(function(c){
-    return {
-      src: c.querySelector('img').src,
-      title: c.querySelector('.lazer-title') ? c.querySelector('.lazer-title').textContent : '',
-      desc: c.querySelector('.lazer-text') ? c.querySelector('.lazer-text').textContent : ''
-    };
-  });
+  var lzDescs = [
+    'Espelho d\'água com hidromassagem para relaxar todos os dias com a melhor vista da cidade.',
+    'Espaço completo com equipamentos de primeira para treinar sem sair de casa.',
+    'Sauna conectada à área da piscina para um ritual completo de bem-estar.',
+    'Comemore momentos incríveis neste espaço dedicado a você, família e amigos.',
+    'Aquele churrasco no fim de semana está garantido com churrasqueira americana e forno de pizza.',
+    'As crianças vão amar se divertir e gastar toda energia com os brinquedos e passatempos.',
+    'Para quem ama bike, aqui tem um espaço seguro e personalizado para você.',
+    'Vagas de garagem no térreo do prédio.',
+    'Vagas de garagem no subsolo.'
+  ];
+  var tiles = Array.from(document.querySelectorAll('.lz[data-lz]'));
+  var total = tiles.length;
   var lzlb = document.getElementById('lzlb');
   var lzImg = document.getElementById('lzlb-img');
   var lzTitle = document.getElementById('lzlb-title');
@@ -1039,9 +1023,9 @@ if (window.lucide) lucide.createIcons();
 
   function lzOpen(idx){
     lzCur = idx;
-    lzImg.src = lzData[lzCur].src;
-    lzTitle.textContent = lzData[lzCur].title;
-    lzDesc.textContent = lzData[lzCur].desc;
+    lzImg.src = tiles[lzCur].querySelector('img').src;
+    lzTitle.textContent = tiles[lzCur].querySelector('.lazer-title').textContent;
+    lzDesc.textContent = lzDescs[lzCur] || '';
     lzCount.textContent = (lzCur+1) + ' / ' + total;
     lzlb.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1049,17 +1033,17 @@ if (window.lucide) lucide.createIcons();
   function lzClose(){ lzlb.classList.remove('open'); document.body.style.overflow = ''; }
   function lzGo(dir){
     lzCur = (lzCur + dir + total) % total;
-    lzImg.src = lzData[lzCur].src;
-    lzTitle.textContent = lzData[lzCur].title;
-    lzDesc.textContent = lzData[lzCur].desc;
+    lzImg.src = tiles[lzCur].querySelector('img').src;
+    lzTitle.textContent = tiles[lzCur].querySelector('.lazer-title').textContent;
+    lzDesc.textContent = lzDescs[lzCur] || '';
     lzCount.textContent = (lzCur+1) + ' / ' + total;
   }
 
-  cards.forEach(function(c){ c.addEventListener('click', function(){ lzOpen(+c.dataset.lz); }); });
+  tiles.forEach(function(t){ t.addEventListener('click', function(){ lzOpen(+t.dataset.lz); }); });
   document.getElementById('lzlb-close').addEventListener('click', lzClose);
   document.getElementById('lzlb-prev').addEventListener('click', function(){ lzGo(-1); });
   document.getElementById('lzlb-next').addEventListener('click', function(){ lzGo(+1); });
-  lzlb.addEventListener('click', function(e){ if(e.target === lzlb) lzClose(); });
+  lzlb.addEventListener('click', function(e){ if(e.target===lzlb) lzClose(); });
   document.addEventListener('keydown', function(e){
     if(!lzlb.classList.contains('open')) return;
     if(e.key==='ArrowLeft') lzGo(-1);

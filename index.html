@@ -179,14 +179,14 @@ nav {
 .lz::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0); transition:background .3s; }
 .lz:hover::after { background:rgba(0,0,0,.18); }
 /* tamanhos */
-.lz.lz-big  { grid-column:span 6; grid-row:span 2; }  /* 2 grandes topo */
-.lz.lz-sm   { grid-column:span 3; }                    /* 4 pequenos meio */
-.lz.lz-md   { grid-column:span 4; }                    /* 3 médios base */
-/* mobile: tudo ocupa metade */
+.lz.lz-big  { grid-column:span 6; grid-row:span 2; }  /* piscina: esq, 2 linhas */
+.lz.lz-wide { grid-column:span 6; }                    /* academia, brinquedo, garagens */
+.lz.lz-sm   { grid-column:span 3; }                    /* gourmet, salão, sauna, bike */
+/* mobile */
 @media(max-width:639px){
-  .lz.lz-big { grid-column:span 12; grid-row:span 1; }
-  .lz.lz-sm  { grid-column:span 6; }
-  .lz.lz-md  { grid-column:span 12; }
+  .lz.lz-big  { grid-column:span 12; grid-row:span 1; }
+  .lz.lz-wide { grid-column:span 12; }
+  .lz.lz-sm   { grid-column:span 6; }
 }
 .lazer-body { position:absolute; bottom:0; left:0; right:0; padding:16px 18px 20px; background:linear-gradient(to top, rgba(10,18,40,.92) 0%, rgba(10,18,40,.55) 65%, transparent 100%); }
 /* lazer lightbox */

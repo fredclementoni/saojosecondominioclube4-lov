@@ -160,11 +160,14 @@ nav {
 .torre-cta:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(0,0,0,.28); }
 
 /* ── FEITO PRA VOCÊ ── */
-#fpvc { padding:10px 0 40px; }
+#fpvc { padding:10px 0 112px; }
 .fpvc-top { display:grid; grid-template-columns:1fr; gap:48px; align-items:center; margin-bottom:64px; }
 @media(min-width:900px){ .fpvc-top{grid-template-columns:1.1fr 1fr; gap:64px;} }
-.fpvc-img { max-width:560px; margin:0 auto; border-radius:24px; overflow:hidden; box-shadow:var(--sh-el); }
+.fpvc-img { max-width:392px; margin:0 auto; border-radius:24px; overflow:hidden; box-shadow:var(--sh-el); }
 .fpvc-img img { width:100%; height:auto; display:block; }
+@media(max-width:639px){
+  .fpvc-img { max-width:none; width:100%; }
+}
 .fpvc-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:700; line-height:1.2; margin:14px 0 18px; }
 .fpvc-intro p { font-size:1rem; color:var(--muted-fg); line-height:1.75; }
 .fpvc-grid { display:grid; grid-template-columns:1fr; gap:24px; }
@@ -193,6 +196,7 @@ nav {
 @media(min-width:1024px){ .lazer-bento{ grid-auto-rows:220px; gap:14px; } }
 .lz { border-radius:14px; overflow:hidden; position:relative; cursor:pointer; }
 .lz img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .45s; }
+.lz[data-lz="4"] img { object-position:78% center; }
 .lz:hover img { transform:scale(1.06); }
 .lz::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0); transition:background .3s; }
 .lz:hover::after { background:rgba(0,0,0,.18); }
@@ -202,15 +206,18 @@ nav {
 .lz.lz-sm   { grid-column:span 3; }                    /* gourmet, salão, sauna, bike */
 /* mobile */
 @media(max-width:639px){
-  .lz.lz-big  { grid-column:span 12; grid-row:span 1; }
-  .lz.lz-wide { grid-column:span 12; }
-  .lz.lz-sm   { grid-column:span 6; }
+  .lazer-bento { grid-template-columns:repeat(2,1fr); grid-auto-rows:200px; gap:10px; }
+  .lz.lz-wide,
+  .lz.lz-sm   { grid-column:span 1; grid-row:span 1; }
+  .lz.lz-big,
+  .lz[data-lz="1"] { grid-column:span 2; grid-row:span 2; }
+  .lz[data-lz="4"] { grid-column:span 1; grid-row:span 2; }
 }
 .lazer-body { position:absolute; bottom:0; left:0; right:0; padding:16px 18px 20px; background:linear-gradient(to top, rgba(10,18,40,.92) 0%, rgba(10,18,40,.55) 65%, transparent 100%); }
 /* lazer lightbox */
 .lzlb { display:none; position:fixed; inset:0; z-index:9100; background:rgba(8,13,30,.94); backdrop-filter:blur(6px); flex-direction:column; align-items:center; justify-content:center; }
 .lzlb.open { display:flex; }
-.lzlb-img { max-width:90vw; max-height:72vh; object-fit:contain; border-radius:12px; display:block; }
+.lzlb-img { width:min(1728px,90vw); height:min(778px,72vh); object-fit:cover; border-radius:12px; display:block; }
 .lzlb-caption { margin-top:20px; text-align:center; color:#fff; }
 .lzlb-caption h3 { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; margin-bottom:6px; }
 .lzlb-caption p { font-size:.88rem; color:rgba(255,255,255,.60); max-width:520px; }
@@ -266,6 +273,16 @@ nav {
 .db.wide  { grid-column:span 2; }
 .db.tall  { grid-row:span 2; }
 .db.big   { grid-column:span 2; grid-row:span 2; }
+.decorado-cta-wrap { display:flex; justify-content:center; margin-top:40px; }
+.decorado-cta {
+  display:inline-flex; align-items:center; gap:9px;
+  padding:14px 29px; border-radius:9999px;
+  background:var(--sunset); color:#fff;
+  font-size:14px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+  transition:transform .2s, box-shadow .2s;
+  box-shadow:0 8px 32px rgba(192,97,74,.40);
+}
+.decorado-cta:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(192,97,74,.50); }
 
 /* lightbox overlay */
 .lb-overlay {
@@ -275,7 +292,7 @@ nav {
 }
 .lb-overlay.open { display:flex; }
 .lb-wrap { position:relative; max-width:90vw; max-height:88vh; display:flex; align-items:center; justify-content:center; }
-.lb-img { max-width:90vw; max-height:85vh; border-radius:12px; object-fit:contain; user-select:none; display:block; }
+.lb-img { width:min(1728px,90vw); height:min(778px,72vh); border-radius:12px; object-fit:cover; user-select:none; display:block; }
 .lb-close {
   position:fixed; top:20px; right:24px;
   width:44px; height:44px; border-radius:50%;
@@ -331,8 +348,21 @@ nav {
 .cond-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:700; line-height:1.2; margin-top:12px; }
 .cond-featured { text-align:center; margin-bottom:40px; background:radial-gradient(ellipse at 50% 40%, #3a200c 0%, #1e0f05 55%, #0e0804 100%); border-radius:24px; padding:52px 32px 48px; }
 .cond-featured-label { font-size:11px; font-weight:600; letter-spacing:.25em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:12px; }
-.cond-price { font-family:'Playfair Display',serif; font-size:clamp(3rem,6vw,5rem); font-weight:900; color:#f0e6d6; line-height:1; margin-bottom:16px; }
+.cond-price { position:relative; display:inline-block; font-family:'Playfair Display',serif; font-size:clamp(3rem,6vw,5rem); font-weight:900; color:#f0e6d6; line-height:1; margin-bottom:16px; cursor:pointer; }
 .cond-price span { font-size:clamp(1.2rem,2vw,1.8rem); font-weight:400; color:rgba(240,230,214,.65); }
+.cond-price-value { display:inline-block; filter:blur(18px); opacity:.38; transform:scale(.98); user-select:none; pointer-events:none; }
+.cond-price::after {
+  content:'Clique para descobrir';
+  position:absolute; inset:50% auto auto 50%;
+  transform:translate(-50%,-50%);
+  min-width:220px; padding:12px 18px;
+  border-radius:9999px;
+  background:var(--sunset); color:#fff;
+  font-family:Inter,system-ui,sans-serif; font-size:14px; font-weight:700;
+  letter-spacing:.04em; text-transform:uppercase;
+  box-shadow:0 8px 32px rgba(192,97,74,.40);
+  white-space:nowrap;
+}
 .cond-notes { display:flex; flex-direction:column; gap:8px; align-items:center; }
 .cond-note { font-size:.88rem; color:rgba(240,230,214,.55); max-width:520px; text-align:center; }
 .cond-cards { display:grid; grid-template-columns:1fr; gap:24px; }
@@ -368,7 +398,7 @@ nav {
 .loc-map-btn:hover { opacity:.88; }
 
 /* ── MODELO INVEST ── */
-#invest { padding:100px 0; background:#171D26; color:#fff; }
+#invest { display:none; padding:100px 0; background:#171D26; color:#fff; }
 .invest-intro { text-align:center; max-width:780px; margin:0 auto 56px; }
 .invest-intro .eyebrow { color:var(--bronze-s); }
 .invest-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:700; line-height:1.25; color:#fff; margin-top:14px; }
@@ -388,6 +418,11 @@ nav {
 @media(min-width:768px){ .inbrax-grid{grid-template-columns:1fr 1fr; align-items:center;} }
 .inbrax-content h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3vw,2.8rem); font-weight:700; line-height:1.2; margin:12px 0 16px; }
 .inbrax-content p { font-size:.95rem; color:var(--muted-fg); line-height:1.75; margin-bottom:32px; }
+@media(max-width:639px){
+  #inbrax { padding:72px 0; }
+  .inbrax-content h2 { font-size:clamp(1.85rem,9vw,2.35rem); overflow-wrap:anywhere; }
+  .inbrax-content p { overflow-wrap:anywhere; }
+}
 .inbrax-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:40px; }
 @media(min-width:480px){ .inbrax-stats{grid-template-columns:repeat(4,1fr);} }
 .inbrax-stat { background:var(--bg); border-radius:14px; padding:20px 16px; text-align:center; }
@@ -557,7 +592,7 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
         <img src="assets/fachada-s1.png" alt="Fachada São José Condomínio Clube">
       </div>
       <div class="fpvc-intro">
-        <span class="eyebrow">Feito pra você</span>
+        <span class="eyebrow" style="display:none;">Feito pra você</span>
         <h2 class="serif">Por que o São José é especial.</h2>
         <p>O São José Condomínio Clube mudou o padrão de moradia em São Sebastião do Paraíso: lazer completo, segurança, vista, localização e a força de um produto que serve para morar, investir ou usar como refúgio de fim de semana.</p>
       </div>
@@ -594,13 +629,13 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
       <p>Uma estrutura pensada para transformar a rotina: descanso, convívio, saúde, família e momentos especiais no mesmo endereço.</p>
     </div>
     <div class="lazer-bento">
-      <!-- linha 1-2 esq: piscina grande (2 rows) | dir: academia topo + gourmet/salão baixo -->
+      <!-- linha 1-2 esq: piscina grande (2 rows) | dir: academia topo + sauna/salão baixo -->
       <div class="lz lz-big"  data-lz="0"><img src="assets/lazer-piscina.jpg"   alt="Piscina com hidro"><div class="lazer-body"><h3 class="lazer-title serif">Piscina com hidro</h3></div></div>
       <div class="lz lz-wide" data-lz="1"><img src="assets/lazer-academia.jpg"  alt="Academia equipada"><div class="lazer-body"><h3 class="lazer-title serif">Academia equipada</h3></div></div>
-      <div class="lz lz-sm"   data-lz="2"><img src="assets/lazer-gourmet.jpg"   alt="2 Espaços Gourmet"><div class="lazer-body"><h3 class="lazer-title serif">2 Espaços Gourmet</h3></div></div>
-      <div class="lz lz-sm"   data-lz="3"><img src="assets/lazer-salao.jpg"     alt="Salão de Festas"><div class="lazer-body"><h3 class="lazer-title serif">Salão de Festas</h3></div></div>
-      <!-- linha 3: sauna + bike (esq) | brinquedo (dir) -->
       <div class="lz lz-sm"   data-lz="4"><img src="assets/lazer-sauna.jpg"     alt="Sauna integrada"><div class="lazer-body"><h3 class="lazer-title serif">Sauna integrada</h3></div></div>
+      <div class="lz lz-sm"   data-lz="3"><img src="assets/lazer-salao.jpg"     alt="Salão de Festas"><div class="lazer-body"><h3 class="lazer-title serif">Salão de Festas</h3></div></div>
+      <!-- linha 3: gourmet + bike (esq) | brinquedo (dir) -->
+      <div class="lz lz-sm"   data-lz="2"><img src="assets/lazer-gourmet.jpg"   alt="2 Espaços Gourmet"><div class="lazer-body"><h3 class="lazer-title serif">2 Espaços Gourmet</h3></div></div>
       <div class="lz lz-sm"   data-lz="5"><img src="assets/lazer-bike.jpg"      alt="Bicicletário"><div class="lazer-body"><h3 class="lazer-title serif">Bicicletário</h3></div></div>
       <div class="lz lz-wide" data-lz="6"><img src="assets/lazer-brinquedo.jpg" alt="Brinquedoteca"><div class="lazer-body"><h3 class="lazer-title serif">Brinquedoteca</h3></div></div>
       <!-- linha 4: garagem 1 + garagem 2 -->
@@ -626,7 +661,7 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
     <div class="decorado-intro">
       <span class="eyebrow" style="display:none;">Decorado</span>
       <h2 class="serif">Veja como fica na prática.</h2>
-      <p>O apartamento decorado do São José Condomínio Clube mostra cada detalhe do acabamento premium — do piso ao teto, da cozinha americana à varanda com vista.</p>
+      <p>O apartamento decorado do São José Condomínio Clube mostra cada detalhe para te inspirar — como a praticidade facilita a vida.</p>
     </div>
     <!-- bento: 8 imagens, layout variado -->
     <div class="decorado-bento">
@@ -638,6 +673,11 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
       <div class="db"      data-idx="5"><img src="assets/decorado-sj1-6.jpg" alt="Decorado São José" loading="lazy"></div>
       <div class="db"      data-idx="6"><img src="assets/decorado-sj1-7.jpg" alt="Decorado São José" loading="lazy"></div>
       <div class="db"      data-idx="7"><img src="assets/decorado-sj1-8.jpg" alt="Decorado São José" loading="lazy"></div>
+    </div>
+    <div class="decorado-cta-wrap">
+      <a href="https://wa.me/5535910202948?text=Ol%C3%A1!%20Quero%20conhecer%20o%20decorado%20do%20S%C3%A3o%20Jos%C3%A9%20Condom%C3%ADnio%20Clube." class="decorado-cta" target="_blank">
+        Quero conhecer o decorado <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -710,7 +750,7 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
     </div>
     <div class="cond-featured">
       <div class="cond-featured-label">A partir de</div>
-      <div class="cond-price"><span>R$&nbsp;</span>1.890<span>/mês</span></div>
+      <a href="https://wa.me/5535910202948?text=Ol%C3%A1!%20Quero%20descobrir%20o%20valor%20da%20parcela%20do%20S%C3%A3o%20Jos%C3%A9%20Condom%C3%ADnio%20Clube." class="cond-price" target="_blank" aria-label="Valor sob consulta. Clique para descobrir pelo WhatsApp."><span class="cond-price-value" aria-hidden="true"><span>R$&nbsp;</span>1.890<span>/mês</span></span></a>
       <div class="cond-notes">
         <span class="cond-note">Condição especial para as últimas unidades da Torre B.</span>
         <span class="cond-note">Aceita parcelamento direto com a construtora ou financiamento bancário. Consulte as condições disponíveis para o seu perfil.</span>
@@ -893,20 +933,20 @@ i[data-lucide] { display:inline-flex; align-items:center; justify-content:center
           <div><div class="zella-feature-title">Gestão completa</div><div class="zella-feature-desc">Administração do imóvel do início ao fim.</div></div>
         </div>
         <div class="zella-feature">
-          <div class="zella-feature-icon"><i data-lucide="banknote" style="width:20px;height:20px;color:var(--bronze-s)"></i></div>
-          <div><div class="zella-feature-title">Repasse garantido</div><div class="zella-feature-desc">Você recebe pontualmente todo mês.</div></div>
-        </div>
-        <div class="zella-feature">
           <div class="zella-feature-icon"><i data-lucide="bar-chart-2" style="width:20px;height:20px;color:var(--bronze-s)"></i></div>
           <div><div class="zella-feature-title">Máxima ocupação</div><div class="zella-feature-desc">Marketing ativo para os melhores inquilinos.</div></div>
         </div>
         <div class="zella-feature">
-          <div class="zella-feature-icon"><i data-lucide="file-text" style="width:20px;height:20px;color:var(--bronze-s)"></i></div>
-          <div><div class="zella-feature-title">Contratos e jurídico</div><div class="zella-feature-desc">Toda a burocracia resolvida pela equipe.</div></div>
+          <div class="zella-feature-icon"><i data-lucide="clipboard-check" style="width:20px;height:20px;color:var(--bronze-s)"></i></div>
+          <div><div class="zella-feature-title">Regularidade documental</div><div class="zella-feature-desc">Organização de contratos, comprovantes e documentos da locação.</div></div>
         </div>
         <div class="zella-feature">
-          <div class="zella-feature-icon"><i data-lucide="smartphone" style="width:20px;height:20px;color:var(--bronze-s)"></i></div>
-          <div><div class="zella-feature-title">Relatórios em tempo real</div><div class="zella-feature-desc">Acompanhe pelo aplicativo, de onde estiver.</div></div>
+          <div class="zella-feature-icon"><i data-lucide="search-check" style="width:20px;height:20px;color:var(--bronze-s)"></i></div>
+          <div><div class="zella-feature-title">Vistoria de entrada e saída</div><div class="zella-feature-desc">Registro completo do estado do imóvel antes e depois da locação.</div></div>
+        </div>
+        <div class="zella-feature">
+          <div class="zella-feature-icon"><i data-lucide="calendar-range" style="width:20px;height:20px;color:var(--bronze-s)"></i></div>
+          <div><div class="zella-feature-title">Locação tradicional ou temporada</div><div class="zella-feature-desc">Estratégia para escolher entre aluguel fixo, Airbnb ou modelo híbrido.</div></div>
         </div>
       </div>
     </div>

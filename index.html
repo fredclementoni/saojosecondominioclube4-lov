@@ -174,6 +174,10 @@ nav {
 .hero-h1 em { font-style:italic; color:rgba(245,241,232,.85); }
 .hero-sub { font-size:clamp(1rem,1.6vw,1.18rem); font-weight:300; line-height:1.65; color:rgba(245,241,232,.82); margin-bottom:14px; max-width:600px; }
 .hero-sub-strong { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1.05rem,1.7vw,1.3rem); color:#fff; margin-bottom:36px; max-width:600px; }
+.hero-benefits { display:flex; flex-direction:column; gap:12px; margin-bottom:36px; list-style:none; }
+.hero-benefits li { display:flex; align-items:center; gap:10px; color:#fff; font-size:clamp(1rem,1.6vw,1.18rem); font-weight:500; line-height:1.5; }
+.hero-benefits i { width:18px; height:18px; color:#fff; stroke-width:2; }
+.hero-availability { margin-top:12px; color:#fff; font-size:clamp(1.08rem,1.8vw,1.3rem); font-weight:700; line-height:1.5; }
 .hero-cta {
   display:inline-flex; align-items:center; gap:9px;
   padding:14px 29px; border-radius:9999px;
@@ -216,7 +220,7 @@ nav {
 .torre-cta:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(0,0,0,.28); }
 
 /* ── FEITO PRA VOCÊ ── */
-#fpvc { padding:10px 0 112px; }
+#fpvc { padding:80px 0 112px; }
 .fpvc-top { display:grid; grid-template-columns:1fr; gap:48px; align-items:center; margin-bottom:64px; }
 @media(min-width:900px){ .fpvc-top{grid-template-columns:1.1fr 1fr; gap:64px;} }
 .fpvc-img { max-width:392px; margin:0 auto; border-radius:24px; overflow:hidden; box-shadow:var(--sh-el); }
@@ -226,6 +230,7 @@ nav {
 }
 .fpvc-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:700; line-height:1.2; margin:14px 0 18px; }
 .fpvc-intro p { font-size:1rem; color:var(--muted-fg); line-height:1.75; }
+.fpvc-intro p + p { margin-top:16px; }
 .fpvc-grid { display:grid; grid-template-columns:1fr; gap:24px; }
 @media(min-width:768px){ .fpvc-grid{grid-template-columns:repeat(3,1fr);} }
 .fpvc-card {
@@ -239,11 +244,11 @@ nav {
 .fpvc-text { font-size:.92rem; color:var(--muted-fg); line-height:1.7; }
 
 /* ── LAZER ── */
-#lazer { padding:100px 0; background:#171D26; color:#fff; }
+#lazer { padding:100px 0; background:var(--bg); color:var(--fg); }
 .lazer-intro { text-align:center; margin-bottom:64px; max-width:720px; margin-left:auto; margin-right:auto; }
-.lazer-intro .eyebrow { color:var(--bronze-s); }
-.lazer-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:700; color:#fff; margin-top:12px; line-height:1.2; }
-.lazer-intro p { font-size:1rem; color:rgba(255,255,255,.65); margin-top:14px; }
+.lazer-intro .eyebrow { color:var(--bronze); }
+.lazer-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:700; color:var(--fg); margin-top:12px; line-height:1.2; }
+.lazer-intro p { font-size:1rem; color:var(--muted-fg); margin-top:14px; }
 .lazer-grid { display:grid; grid-template-columns:1fr; gap:24px; margin-bottom:48px; }
 @media(min-width:768px){ .lazer-grid{grid-template-columns:repeat(3,1fr);} }
 /* lazer bento grid */
@@ -273,7 +278,7 @@ nav {
 /* lazer lightbox */
 .lzlb { display:none; position:fixed; inset:0; z-index:9100; background:rgba(8,13,30,.94); backdrop-filter:blur(6px); flex-direction:column; align-items:center; justify-content:center; }
 .lzlb.open { display:flex; }
-.lzlb-img { width:min(1728px,90vw); height:min(778px,72vh); object-fit:cover; border-radius:12px; display:block; }
+.lzlb-img { width:min(90vw,calc(72vh * 1.25)); height:auto; aspect-ratio:5/4; object-fit:cover; border-radius:12px; display:block; }
 .lzlb-caption { margin-top:20px; text-align:center; color:#fff; }
 .lzlb-caption h3 { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; margin-bottom:6px; }
 .lzlb-caption p { font-size:.88rem; color:rgba(255,255,255,.60); max-width:520px; }
@@ -298,10 +303,10 @@ nav {
 .carousel-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:#fff; }
 
 /* ── DECORADO ── */
-#decorado { padding:100px 0; background:var(--bg); }
+#decorado { padding:100px 0; background:#171D26; color:#fff; }
 .decorado-intro { text-align:center; margin-bottom:56px; }
 .decorado-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:700; line-height:1.2; margin-top:12px; }
-.decorado-intro p { font-size:1rem; color:var(--muted-fg); line-height:1.75; max-width:580px; margin:16px auto 0; }
+.decorado-intro p { font-size:1rem; color:rgba(255,255,255,.68); line-height:1.75; max-width:580px; margin:16px auto 0; }
 
 /* bento grid */
 .decorado-bento {
@@ -348,7 +353,7 @@ nav {
 }
 .lb-overlay.open { display:flex; }
 .lb-wrap { position:relative; max-width:90vw; max-height:88vh; display:flex; align-items:center; justify-content:center; }
-.lb-img { width:min(1728px,90vw); height:min(778px,72vh); border-radius:12px; object-fit:cover; user-select:none; display:block; }
+.lb-img { width:min(90vw,calc(72vh * 1.25)); height:auto; aspect-ratio:5/4; border-radius:12px; object-fit:cover; user-select:none; display:block; }
 .lb-close {
   position:fixed; top:20px; right:24px;
   width:44px; height:44px; border-radius:50%;
@@ -431,6 +436,15 @@ nav {
 .cond-list li i { color:var(--sunset); flex-shrink:0; }
 .cond-btn { display:inline-flex; align-items:center; gap:8px; padding:13px 28px; border-radius:9999px; background:var(--charcoal); color:#fff; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; transition:opacity .2s; }
 .cond-btn:hover { opacity:.80; }
+
+/* ── VISTA ── */
+#vista { position:relative; width:100%; min-height:70vh; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.vista-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.vista-overlay { position:absolute; inset:0; background:rgba(8,13,30,.28); }
+.vista-title { position:relative; z-index:1; padding:0 24px; color:#fff; text-align:center; font-family:'Playfair Display',serif; font-size:clamp(2.4rem,6vw,5.5rem); font-weight:700; line-height:1.1; text-shadow:0 4px 24px rgba(0,0,0,.45); }
+@media(max-width:639px){
+  #vista { min-height:52vh; }
+}
 
 /* ── LOCALIZAÇÃO ── */
 #localizacao { padding:100px 0; }
@@ -585,7 +599,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HERO -->
 <section id="hero">
   <video class="hero-img" autoplay muted loop playsinline>
-    <source src="assets/hero-video.mp4" type="video/mp4">
+    <source src="assets/Time lapse piscina 480p MENOR.mp4" type="video/mp4">
   </video>
   <div class="hero-ov"></div>
   <div class="hero-logo-wrap">
@@ -598,22 +612,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         São Sebastião do Paraíso — MG
       </div>
       <h1 class="hero-h1"><span style="font-weight:400">O primeiro </span>Condomínio Clube<span style="font-weight:400"> de Paraíso</span> <em>pode ser seu.</em></h1>
-      <p class="hero-sub" style="font-weight:400;color:#fff;">Venha visitar a Torre A que já está entregue.</p>
-      <p class="hero-sub" style="font-weight:900;color:#fff;">Essa é sua chance de comprar as últimas unidades da Torre B direto da incorporadora.</p>
-      <p class="hero-sub" style="font-style:italic;font-weight:400;color:#fff;margin-bottom:50px;">Tenha renda durante o mês. Lazer no fim de semana. Patrimônio para a vida.</p>
+      <ul class="hero-benefits">
+        <li><i data-lucide="check"></i><span>Torre A pronta e entregue</span></li>
+        <li><i data-lucide="check"></i><span>Lazer pronto, completo e equipado</span></li>
+        <li><i data-lucide="check"></i><span>Torre B com condições direto com a incorporadora</span></li>
+      </ul>
       <a id="cta-hero-realizar-sonho" href="https://wa.me/5535910202948?text=Olá!%20Quero%20realizar%20meu%20sonho%20no%20São%20José%20Condomínio%20Clube." class="hero-cta cta-track" data-cta-location="banner-principal" data-cta-type="whatsapp" data-cta-name="realizar-sonho" style="margin-bottom:10px;" target="_blank" onclick="return gtag_report_conversion(this.href, 'hero_realizar_sonho', this.target);">
-        Quero realizar meu sonho
+        AGENDAR UMA VISITA
       </a>
+      <p class="hero-availability">Poucas unidades disponíveis na Torre B.</p>
     </div>
-  </div>
-</section>
-
-<!-- FRASE IMPACTO -->
-<section id="frase-impacto" style="padding:80px 0 60px; background:var(--bg);">
-  <div class="wrap" style="text-align:center; max-width:860px; margin:0 auto;">
-    <h1 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3.5vw,3rem); line-height:1.3; color:var(--fg);">
-      <span style="font-weight:650;display:block;">Essa pode ser a</span><span style="font-weight:900;display:block;">última oportunidade.</span>
-    </h1>
   </div>
 </section>
 
@@ -639,42 +647,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a id="cta-torre-b-conhecer" href="https://wa.me/5535910202948?text=Olá!%20Quero%20conhecer%20as%20últimas%20unidades%20da%20Torre%20B." class="torre-cta cta-track" data-cta-location="apresentacao" data-cta-type="whatsapp" data-cta-name="conhecer-torre-b" target="_blank" onclick="return gtag_report_conversion(this.href, 'torre_b_conhecer', this.target);">
           Quero conhecer agora <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
         </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEITO PRA VOCÊ -->
-<section id="fpvc">
-  <div class="wrap">
-    <div class="fpvc-top">
-      <div class="fpvc-img">
-        <img src="assets/fachada-s1.png" alt="Fachada São José Condomínio Clube">
-      </div>
-      <div class="fpvc-intro">
-        <span class="eyebrow" style="display:none;">Feito pra você</span>
-        <h2 class="serif">Por que o São José é especial.</h2>
-        <p>O São José Condomínio Clube mudou o padrão de moradia em São Sebastião do Paraíso: lazer completo, segurança, vista, localização e a força de um produto que serve para morar, investir ou usar como refúgio de fim de semana.</p>
-      </div>
-    </div>
-    <div class="fpvc-grid">
-      <div class="fpvc-card">
-        <div class="fpvc-icon"><i data-lucide="home" style="width:28px;height:28px;color:var(--bronze)"></i></div>
-        <div class="fpvc-num">01</div>
-        <h3 class="fpvc-title serif">Pra quem quer morar</h3>
-        <p class="fpvc-text">Mais segurança, lazer e praticidade para a família no dia a dia. A primeira torre já mostrou o padrão do empreendimento.</p>
-      </div>
-      <div class="fpvc-card">
-        <div class="fpvc-icon"><i data-lucide="trending-up" style="width:28px;height:28px;color:var(--bronze)"></i></div>
-        <div class="fpvc-num">02</div>
-        <h3 class="fpvc-title serif">Pra quem quer investir</h3>
-        <p class="fpvc-text">Um imóvel com potencial de renda em uma cidade com forte demanda por locação residencial.</p>
-      </div>
-      <div class="fpvc-card">
-        <div class="fpvc-icon"><i data-lucide="sun" style="width:28px;height:28px;color:var(--bronze)"></i></div>
-        <div class="fpvc-num">03</div>
-        <h3 class="fpvc-title serif">Pra quem quer aproveitar</h3>
-        <p class="fpvc-text">Seu ponto de descanso em Paraíso para finais de semana e momentos especiais com família e amigos.</p>
       </div>
     </div>
   </div>
@@ -742,6 +714,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- FEITO PRA VOCÊ -->
+<section id="fpvc">
+  <div class="wrap">
+    <div class="fpvc-top" style="margin-bottom:0;">
+      <div class="fpvc-img">
+        <img src="assets/fachada-s1.png" alt="Fachada São José Condomínio Clube">
+      </div>
+      <div class="fpvc-intro">
+        <span class="eyebrow" style="display:none;">Feito pra você</span>
+        <h2 class="serif">Por que o São José é especial.</h2>
+        <p>O São José Condomínio Clube mudou o padrão de moradia em São Sebastião do Paraíso.</p>
+        <p>Não é só um condomínio clube.<br>Não é só um apartamento.<br>Não é só um investimento</p>
+        <p>É a combinação perfeita de tudo isso, de um jeito que você só encontra aqui.</p>
+        <p>Com a Torre A entregue e totalmente vendida, restam poucas unidades disponíveis na Torre B.</p>
+        <p>Um patrimônio para sua família, com potencial de renda mensal e toda a estrutura do 1º Condomínio Clube de Paraíso.</p>
+        <p>Sua oportunidade de fazer parte do São José está na reta final.</p>
+      </div>
+    </div>
+    <div class="fpvc-grid" style="display:none;">
+      <div class="fpvc-card">
+        <div class="fpvc-icon"><i data-lucide="home" style="width:28px;height:28px;color:var(--bronze)"></i></div>
+        <div class="fpvc-num">01</div>
+        <h3 class="fpvc-title serif">Pra quem quer morar</h3>
+        <p class="fpvc-text">Mais segurança, lazer e praticidade para a família no dia a dia. A primeira torre já mostrou o padrão do empreendimento.</p>
+      </div>
+      <div class="fpvc-card">
+        <div class="fpvc-icon"><i data-lucide="trending-up" style="width:28px;height:28px;color:var(--bronze)"></i></div>
+        <div class="fpvc-num">02</div>
+        <h3 class="fpvc-title serif">Pra quem quer investir</h3>
+        <p class="fpvc-text">Um imóvel com potencial de renda em uma cidade com forte demanda por locação residencial.</p>
+      </div>
+      <div class="fpvc-card">
+        <div class="fpvc-icon"><i data-lucide="sun" style="width:28px;height:28px;color:var(--bronze)"></i></div>
+        <div class="fpvc-num">03</div>
+        <h3 class="fpvc-title serif">Pra quem quer aproveitar</h3>
+        <p class="fpvc-text">Seu ponto de descanso em Paraíso para finais de semana e momentos especiais com família e amigos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- LIGHTBOX -->
 <div class="lb-overlay" id="lb">
   <button class="lb-close cta-track" id="lb-close" data-cta-location="galeria" data-cta-type="galeria" data-cta-name="fechar-galeria-decorado">✕</button>
@@ -770,10 +783,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="planta-name serif">Apartamento<br>Smart</div>
           <div class="planta-area">54m²</div>
           <ul class="planta-features">
-            <li>2 quartos com armários</li>
+            <li>2 dormitórios</li>
             <li>Sala de estar e jantar</li>
-            <li>Cozinha americana</li>
-            <li>Varanda com vista</li>
+            <li>Cozinha com área de serviço</li>
+            <li>Sacada com vista</li>
+            <li>Infra para ar</li>
+            <li>Banheiro social</li>
             <li>1 vaga de garagem</li>
           </ul>
           <a id="cta-planta-smart" href="https://wa.me/5535910202948?text=Olá!%20Tenho%20interesse%20no%20apartamento%20Smart%2054m²." class="planta-btn cta-track" data-cta-location="apartamentos" data-cta-type="whatsapp" data-cta-name="interesse-apartamento-smart" target="_blank" onclick="return gtag_report_conversion(this.href, 'planta_smart', this.target);">Tenho interesse</a>
@@ -788,10 +803,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="planta-name serif">Apartamento<br>Garden</div>
           <div class="planta-area">76m²</div>
           <ul class="planta-features">
-            <li>3 quartos, sendo 1 suíte</li>
-            <li>Sala ampliada com varanda</li>
-            <li>Cozinha americana</li>
-            <li>Área de serviço</li>
+            <li>2 dormitórios</li>
+            <li>Sala de estar e jantar</li>
+            <li>Cozinha com área de serviço</li>
+            <li>Varanda com garden</li>
+            <li>Infra para ar</li>
+            <li>Banheiro social</li>
             <li>1 vaga de garagem</li>
           </ul>
           <a id="cta-planta-garden" href="https://wa.me/5535910202948?text=Olá!%20Tenho%20interesse%20no%20apartamento%20Garden%2076m²." class="planta-btn cta-track" data-cta-location="apartamentos" data-cta-type="whatsapp" data-cta-name="interesse-apartamento-garden" target="_blank" onclick="return gtag_report_conversion(this.href, 'planta_garden', this.target);">Tenho interesse</a>
@@ -843,6 +860,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
   </div>
+</section>
+
+<!-- VISTA -->
+<section id="vista">
+  <video class="vista-video" autoplay muted loop playsinline>
+    <source src="assets/video-timelapse-vista.mp4" type="video/mp4">
+  </video>
+  <div class="vista-overlay"></div>
+  <h2 class="vista-title">Olha só essa vista</h2>
 </section>
 
 <!-- LOCALIZAÇÃO -->
@@ -1204,13 +1230,13 @@ if (window.lucide) lucide.createIcons();
 // ── LAZER LIGHTBOX ──
 (function(){
   var lzDescs = [
-    'Espelho d\'água com hidromassagem para relaxar todos os dias com a melhor vista da cidade.',
-    'Espaço completo com equipamentos de primeira para treinar sem sair de casa.',
+    'Parte rasa para as crianças com pontos de hidromassagem, para momentos ainda mais relaxantes.',
+    'Espaço completo com equipamentos de primeira para treinar com a vista mais linda da cidade.',
     'Sauna conectada à área da piscina para um ritual completo de bem-estar.',
     'Comemore momentos incríveis neste espaço dedicado a você, família e amigos.',
     'Aquele churrasco no fim de semana está garantido com churrasqueira americana e forno de pizza.',
-    'As crianças vão amar se divertir e gastar toda energia com os brinquedos e passatempos.',
     'Para quem ama bike, aqui tem um espaço seguro e personalizado para você.',
+    'As crianças vão amar se divertir e gastar toda energia com os brinquedos e passatempos.',
     'Vagas de garagem no térreo do prédio.',
     'Vagas de garagem no subsolo.'
   ];

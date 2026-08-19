@@ -182,6 +182,8 @@ nav {
 .hero-benefits li { display:flex; align-items:center; gap:10px; color:#fff; font-size:clamp(1rem,1.6vw,1.18rem); font-weight:500; line-height:1.5; }
 .hero-benefits i { width:18px; height:18px; color:#fff; stroke-width:2; }
 .hero-availability { margin-top:12px; color:#fff; font-size:clamp(1.08rem,1.8vw,1.3rem); font-weight:700; line-height:1.5; }
+.hero-location { display:flex; align-items:center; gap:7px; margin-top:8px; color:rgba(255,255,255,.9); font-size:clamp(.58rem,1.4vw,.95rem); font-weight:500; line-height:1.35; white-space:nowrap; }
+.hero-location i { width:17px; height:17px; flex:0 0 auto; color:var(--sunset); stroke-width:2.2; }
 .hero-cta {
   display:inline-flex; align-items:center; gap:9px;
   padding:14px 29px; border-radius:9999px;
@@ -192,89 +194,41 @@ nav {
 }
 .hero-cta:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(192,97,74,.50); }
 
-/* ── O QUE VOCÊ PROCURA ── */
+/* ── MENU SÃO JOSÉ ── */
 #o-que-voce-procura { padding:96px 0; background:var(--card); }
-.intent-intro { max-width:720px; margin:0 auto 52px; text-align:center; }
+.intent-intro { max-width:720px; margin:0 auto 48px; text-align:center; }
 .intent-intro .eyebrow { margin-bottom:12px; color:var(--sunset); }
-.intent-intro h2 {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.2rem,4vw,3.4rem);
-  font-weight:700; line-height:1.12; letter-spacing:-.025em;
-}
+.intent-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,4vw,3.4rem); font-weight:700; line-height:1.12; letter-spacing:-.025em; }
 .intent-intro p { margin-top:14px; color:var(--muted-fg); font-size:1rem; line-height:1.7; }
-.intent-grid { display:grid; grid-template-columns:1fr; gap:22px; }
-.intent-card {
-  display:flex; flex-direction:column; min-height:100%;
-  padding:32px 28px; border:1px solid rgba(192,97,74,.48); border-radius:20px;
-  background:var(--bg); color:var(--fg); outline:none;
-  box-shadow:0 12px 36px -28px rgba(30,28,23,.45);
-  transition:background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
-}
-.intent-icon {
-  display:flex; align-items:center; justify-content:center;
-  width:64px; height:64px; margin-bottom:24px; border-radius:18px;
-  background:rgba(192,97,74,.12); color:var(--sunset);
-  transition:background-color .25s ease, color .25s ease, transform .25s ease;
-}
-.intent-icon i { width:32px; height:32px; stroke-width:1.8; }
-.intent-card h3 {
-  margin-bottom:12px; font-family:'Playfair Display',serif;
-  font-size:1.65rem; font-weight:700; line-height:1.15;
-}
-.intent-description { min-height:76px; margin-bottom:22px; color:var(--muted-fg); font-size:.91rem; line-height:1.65; transition:color .25s ease; }
-.intent-benefits { display:flex; flex-direction:column; gap:10px; margin-bottom:28px; list-style:none; }
-.intent-benefits li { display:flex; align-items:flex-start; gap:9px; color:var(--muted-fg); font-size:.82rem; line-height:1.5; transition:color .25s ease; }
-.intent-benefits i { width:16px; height:16px; margin-top:2px; color:var(--sunset); stroke-width:2.4; transition:color .25s ease; }
-.intent-cta {
-  display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  width:100%; min-height:48px; margin-top:auto; padding:13px 20px;
-  border:1px solid var(--sunset); border-radius:9999px;
-  background:var(--sunset); color:#fff;
-  font-size:.75rem; font-weight:700; letter-spacing:.065em; text-align:center; text-transform:uppercase;
-  box-shadow:0 8px 26px rgba(192,97,74,.28);
-  transition:background-color .25s ease, color .25s ease, border-color .25s ease, transform .2s ease, box-shadow .25s ease;
-}
-.intent-cta:hover { transform:translateY(-2px); }
-.intent-card:hover,
-.intent-card:focus,
-.intent-card:focus-within,
-.intent-card.is-active {
-  border-color:var(--sunset); background:var(--sunset); color:#fff;
-  transform:translateY(-6px);
-  box-shadow:0 24px 55px -24px rgba(192,97,74,.68);
-}
-.intent-card:hover .intent-icon,
-.intent-card:focus .intent-icon,
-.intent-card:focus-within .intent-icon,
-.intent-card.is-active .intent-icon { background:rgba(255,255,255,.18); color:#fff; transform:scale(1.04); }
-.intent-card:hover .intent-description,
-.intent-card:hover .intent-benefits li,
-.intent-card:focus .intent-description,
-.intent-card:focus .intent-benefits li,
-.intent-card:focus-within .intent-description,
-.intent-card:focus-within .intent-benefits li,
-.intent-card.is-active .intent-description,
-.intent-card.is-active .intent-benefits li { color:rgba(255,255,255,.84); }
-.intent-card:hover .intent-benefits i,
-.intent-card:focus .intent-benefits i,
-.intent-card:focus-within .intent-benefits i,
-.intent-card.is-active .intent-benefits i { color:#fff; }
-.intent-card:hover .intent-cta,
-.intent-card:focus .intent-cta,
-.intent-card:focus-within .intent-cta,
-.intent-card.is-active .intent-cta {
-  border-color:#fff; background:#fff; color:var(--sunset);
-  box-shadow:0 10px 30px rgba(82,35,25,.22);
-}
-.intent-card:focus-visible { outline:3px solid rgba(192,97,74,.35); outline-offset:4px; }
-.intent-cta:focus-visible { outline:3px solid #fff; outline-offset:3px; }
-@media(min-width:860px){ .intent-grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
+.intent-grid { display:flex; flex-direction:column; gap:16px; max-width:920px; margin:0 auto; }
+.intent-card { overflow:hidden; border:1px solid rgba(192,97,74,.42); border-radius:18px; background:var(--bg); box-shadow:0 12px 36px -28px rgba(30,28,23,.45); transition:border-color .25s ease, box-shadow .25s ease; }
+.intent-card[open] { border-color:var(--sunset); box-shadow:0 22px 48px -32px rgba(192,97,74,.65); }
+.intent-summary { display:flex; align-items:center; gap:18px; min-height:92px; padding:18px 24px; cursor:pointer; list-style:none; }
+.intent-summary::-webkit-details-marker { display:none; }
+.intent-summary:focus-visible { outline:3px solid rgba(192,97,74,.35); outline-offset:-3px; }
+.intent-icon { display:flex; align-items:center; justify-content:center; width:54px; height:54px; flex:0 0 54px; border-radius:15px; background:rgba(192,97,74,.12); color:var(--sunset); transition:background-color .25s ease, color .25s ease; }
+.intent-icon i { width:27px; height:27px; stroke-width:1.9; }
+.intent-summary h3 { flex:1; font-family:'Playfair Display',serif; font-size:clamp(1.55rem,3vw,2.05rem); font-weight:700; line-height:1.15; }
+.intent-arrow { width:25px; height:25px; flex:0 0 auto; color:var(--sunset); transition:transform .3s ease; }
+.intent-card[open] .intent-arrow { transform:rotate(180deg); }
+.intent-panel { padding:0 24px 28px 96px; }
+.intent-description { max-width:750px; margin-bottom:16px; color:var(--muted-fg); font-size:.98rem; line-height:1.75; }
+.intent-benefits { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 24px; max-width:760px; margin-bottom:24px; list-style:none; }
+.intent-benefits li { display:flex; align-items:flex-start; gap:9px; color:var(--muted-fg); font-size:.88rem; line-height:1.5; }
+.intent-benefits i { width:16px; height:16px; flex:0 0 auto; margin-top:2px; color:var(--sunset); stroke-width:2.4; }
+.intent-cta { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:13px 24px; border:1px solid var(--sunset); border-radius:9999px; background:var(--sunset); color:#fff; font-size:.75rem; font-weight:700; letter-spacing:.065em; text-align:center; text-transform:uppercase; box-shadow:0 8px 26px rgba(192,97,74,.28); transition:transform .2s ease, box-shadow .2s ease; }
+.intent-cta:hover { transform:translateY(-2px); box-shadow:0 11px 30px rgba(192,97,74,.38); }
+.intent-cta:focus-visible { outline:3px solid rgba(192,97,74,.35); outline-offset:3px; }
 @media(max-width:639px){
   #o-que-voce-procura { padding:72px 0; }
   .intent-intro { margin-bottom:36px; }
   .intent-intro h2 { font-size:clamp(2rem,10vw,2.7rem); }
-  .intent-card { padding:28px 24px; }
-  .intent-description { min-height:0; }
+  .intent-summary { gap:13px; min-height:80px; padding:14px 16px; }
+  .intent-icon { width:48px; height:48px; flex-basis:48px; }
+  .intent-summary h3 { font-size:clamp(1.3rem,6.5vw,1.65rem); }
+  .intent-panel { padding:2px 16px 24px; }
+  .intent-benefits { grid-template-columns:1fr; }
+  .intent-cta { width:100%; }
 }
 
 /* ── TORRES ── */
@@ -707,6 +661,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         AGENDAR UMA VISITA
       </a>
       <p class="hero-availability">Poucas unidades disponíveis na Torre B.</p>
+      <p class="hero-location"><i data-lucide="map-pin"></i><span>São Sebastião do Paraíso - MG (a 1h de Ribeirão Preto - SP)</span></p>
     </div>
   </div>
 </section>
@@ -715,54 +670,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="o-que-voce-procura">
   <div class="wrap">
     <header class="intent-intro">
-      <span class="eyebrow">Seu momento</span>
+      <span class="eyebrow">Menu São José</span>
       <h2>O que você procura?</h2>
-      <p>Escolha a opção que mais combina com o seu momento.</p>
+      <p>Encontre a melhor opção para alugar, investir ou financiar seu apartamento no São José Condomínio Clube.</p>
     </header>
 
     <div class="intent-grid">
-      <article class="intent-card" tabindex="0" data-intent-card="alugar">
-        <div class="intent-icon" aria-hidden="true"><i data-lucide="key-round"></i></div>
-        <h3>Procurando para alugar?</h3>
-        <p class="intent-description">More a 6 min da Universidade Federal, com praticidade no dia a dia e uma estrutura de lazer completa.</p>
-        <ul class="intent-benefits">
-          <li><i data-lucide="check"></i><span>Apartamentos de 2 dormitórios</span></li>
-          <li><i data-lucide="check"></i><span>Localização próxima à universidade</span></li>
-          <li><i data-lucide="check"></i><span>Alugue por longa ou curta duração</span></li>
-          <li><i data-lucide="check"></i><span>Piscina, academia e espaços de convivência</span></li>
-          <li><i data-lucide="check"></i><span>Administração de locação pela Zella</span></li>
-        </ul>
-        <a id="cta-intencao-alugar" href="https://wa.me/5535910202948?text=Ol%C3%A1!%20Estou%20procurando%20um%20apartamento%20para%20alugar%20no%20S%C3%A3o%20Jos%C3%A9%20Condom%C3%ADnio%20Clube.%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es." class="intent-cta cta-track" data-intent="alugar" data-cta-location="o-que-voce-procura" data-cta-type="whatsapp" data-cta-name="quero-alugar" target="_blank" onclick="return gtag_report_conversion(this.href, 'intencao_alugar', this.target);">Quero alugar <i data-lucide="arrow-right"></i></a>
-      </article>
+      <details class="intent-card" data-intent-card="alugar" open>
+        <summary class="intent-summary">
+          <span class="intent-icon" aria-hidden="true"><i data-lucide="key-round"></i></span>
+          <h3>Quero Alugar</h3>
+          <i class="intent-arrow" data-lucide="chevron-down" aria-hidden="true"></i>
+        </summary>
+        <div class="intent-panel">
+          <p class="intent-description">Viva perto de tudo, a apenas 6 minutos da UFLA, com segurança e uma estrutura de lazer completa. Apartamentos de 2 quartos por R$ 1.600,00 ao mês + condomínio.</p>
+          <ul class="intent-benefits">
+            <li><i data-lucide="check"></i><span>Apenas 6 minutos da UFLA</span></li>
+            <li><i data-lucide="check"></i><span>Aluguel de R$ 1.600,00/mês + condomínio</span></li>
+            <li><i data-lucide="check"></i><span>Apartamentos de 2 quartos</span></li>
+            <li><i data-lucide="check"></i><span>Piscina, academia e lazer completo</span></li>
+          </ul>
+          <a id="cta-intencao-alugar" href="https://wa.me/5535910202948?text=Ol%C3%A1!%20Quero%20alugar%20um%20apartamento%20no%20S%C3%A3o%20Jos%C3%A9%20Condom%C3%ADnio%20Clube%20por%20R%24%201.600%2C00%20por%20m%C3%AAs%20%2B%20condom%C3%ADnio." class="intent-cta cta-track" data-intent="alugar" data-cta-location="menu-sao-jose" data-cta-type="whatsapp" data-cta-name="falar-whatsapp-aluguel" target="_blank" onclick="return gtag_report_conversion(this.href, 'intencao_alugar', this.target);">Falar no WhatsApp <i data-lucide="arrow-right"></i></a>
+        </div>
+      </details>
 
-      <article class="intent-card" tabindex="0" data-intent-card="investir">
-        <div class="intent-icon" aria-hidden="true"><i data-lucide="trending-up"></i></div>
-        <h3>Quer investir?</h3>
-        <p class="intent-description">Construa patrimônio e gere renda com um imóvel preparado para locação tradicional ou por temporada.</p>
-        <ul class="intent-benefits">
-          <li><i data-lucide="check"></i><span>Potencial de valorização patrimonial</span></li>
-          <li><i data-lucide="check"></i><span>Possibilidade de renda mensal</span></li>
-          <li><i data-lucide="check"></i><span>Locação tradicional ou por temporada</span></li>
-          <li><i data-lucide="check"></i><span>Gestão profissional pela Zella</span></li>
-          <li><i data-lucide="check"></i><span>Torre A entregue e totalmente vendida</span></li>
-        </ul>
-        <a id="cta-intencao-investir" href="https://wa.me/5535910202948?text=Ol%C3%A1!%20Tenho%20interesse%20em%20investir%20no%20S%C3%A3o%20Jos%C3%A9%20Condom%C3%ADnio%20Clube%20e%20gostaria%20de%20conhecer%20as%20unidades%20dispon%C3%ADveis%20e%20as%20possibilidades%20de%20renda." class="intent-cta cta-track" data-intent="investir" data-cta-location="o-que-voce-procura" data-cta-type="whatsapp" data-cta-name="quero-investir" target="_blank" onclick="return gtag_report_conversion(this.href, 'intencao_investir', this.target);">Quero investir <i data-lucide="arrow-right"></i></a>
-      </article>
+      <details class="intent-card" data-intent-card="investir">
+        <summary class="intent-summary">
+          <span class="intent-icon" aria-hidden="true"><i data-lucide="trending-up"></i></span>
+          <h3>Quero Investir</h3>
+          <i class="intent-arrow" data-lucide="chevron-down" aria-hidden="true"></i>
+        </summary>
+        <div class="intent-panel">
+          <p class="intent-description">Transforme seu imóvel em patrimônio e fonte de renda. Conte com locação residencial ou por temporada e gestão profissional da Zella para cuidar de todo o processo.</p>
+          <ul class="intent-benefits">
+            <li><i data-lucide="check"></i><span>Potencial de valorização patrimonial</span></li>
+            <li><i data-lucide="check"></i><span>Possibilidade de renda mensal</span></li>
+            <li><i data-lucide="check"></i><span>Locação tradicional ou por temporada</span></li>
+            <li><i data-lucide="check"></i><span>Gestão profissional de locação pela Zella</span></li>
+          </ul>
+          <a id="cta-intencao-investir" href="https://wa.me/5535910202948?text=Ol%C3%A1!%20Quero%20investir%20em%20um%20apartamento%20no%20S%C3%A3o%20Jos%C3%A9%20Condom%C3%ADnio%20Clube%20e%20conhecer%20as%20possibilidades%20de%20renda." class="intent-cta cta-track" data-intent="investir" data-cta-location="menu-sao-jose" data-cta-type="whatsapp" data-cta-name="falar-whatsapp-investimento" target="_blank" onclick="return gtag_report_conversion(this.href, 'intencao_investir', this.target);">Falar no WhatsApp <i data-lucide="arrow-right"></i></a>
+        </div>
+      </details>
 
-      <article class="intent-card" tabindex="0" data-intent-card="morar">
-        <div class="intent-icon" aria-hidden="true"><i data-lucide="house-heart"></i></div>
-        <h3>Quer morar?</h3>
-        <p class="intent-description">Tenha mais conforto, praticidade e qualidade de vida no 1º Condomínio Clube de Paraíso.</p>
-        <ul class="intent-benefits">
-          <li><i data-lucide="check"></i><span>Estrutura de lazer completa</span></li>
-          <li><i data-lucide="check"></i><span>Apartamentos de 2 dormitórios</span></li>
-          <li><i data-lucide="check"></i><span>Opções Garden</span></li>
-          <li><i data-lucide="check"></i><span>Infraestrutura para ar-condicionado</span></li>
-          <li><i data-lucide="check"></i><span>Entrada facilitada</span></li>
-          <li><i data-lucide="check"></i><span>Financiamento direto com a incorporadora</span></li>
-        </ul>
-        <a id="cta-intencao-morar" href="https://wa.me/5535910202948?text=Ol%C3%A1!%20Estou%20procurando%20um%20apartamento%20para%20morar%20no%20S%C3%A3o%20Jos%C3%A9%20Condom%C3%ADnio%20Clube.%20Gostaria%20de%20conhecer%20as%20condi%C3%A7%C3%B5es%20de%20pagamento%20e%20as%20unidades%20dispon%C3%ADveis." class="intent-cta cta-track" data-intent="morar" data-cta-location="o-que-voce-procura" data-cta-type="whatsapp" data-cta-name="quero-morar" target="_blank" onclick="return gtag_report_conversion(this.href, 'intencao_morar', this.target);">Quero morar <i data-lucide="arrow-right"></i></a>
-      </article>
+      <details class="intent-card" data-intent-card="financiar">
+        <summary class="intent-summary">
+          <span class="intent-icon" aria-hidden="true"><i data-lucide="landmark"></i></span>
+          <h3>Quero Financiar</h3>
+          <i class="intent-arrow" data-lucide="chevron-down" aria-hidden="true"></i>
+        </summary>
+        <div class="intent-panel">
+          <p class="intent-description">Escolha a condição que combina com o seu orçamento: financiamento bancário ou parcelamento direto com a incorporadora, entrada facilitada e possibilidade de usar o FGTS.</p>
+          <ul class="intent-benefits">
+            <li><i data-lucide="check"></i><span>Parcelas a partir de R$ 1.890 por mês</span></li>
+            <li><i data-lucide="check"></i><span>Entrada facilitada e negociável</span></li>
+            <li><i data-lucide="check"></i><span>Financiamento bancário ou direto</span></li>
+            <li><i data-lucide="check"></i><span>Possibilidade de usar o FGTS na entrada</span></li>
+          </ul>
+          <a id="cta-intencao-financiar" href="https://wa.me/5535910202948?text=Ol%C3%A1!%20Quero%20financiar%20um%20apartamento%20no%20S%C3%A3o%20Jos%C3%A9%20Condom%C3%ADnio%20Clube%20e%20simular%20as%20condi%C3%A7%C3%B5es%20de%20pagamento." class="intent-cta cta-track" data-intent="financiar" data-cta-location="menu-sao-jose" data-cta-type="whatsapp" data-cta-name="falar-whatsapp-financiamento" target="_blank" onclick="return gtag_report_conversion(this.href, 'intencao_financiar', this.target);">Falar no WhatsApp <i data-lucide="arrow-right"></i></a>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -1333,25 +1299,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 })();
 
-// Interação e mensuração dos cards de intenção.
+// Interação e mensuração do Menu São José.
 (function () {
   var cards = Array.prototype.slice.call(document.querySelectorAll('.intent-card'));
 
-  function activateCard(card) {
-    cards.forEach(function (item) {
-      item.classList.toggle('is-active', item === card);
-    });
-  }
-
   cards.forEach(function (card) {
-    card.addEventListener('click', function (event) {
-      if (!event.target.closest('a')) activateCard(card);
-    });
+    card.addEventListener('toggle', function () {
+      if (!card.open) return;
 
-    card.addEventListener('keydown', function (event) {
-      if (event.target !== card || (event.key !== 'Enter' && event.key !== ' ')) return;
-      event.preventDefault();
-      activateCard(card);
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'expandir_menu_sao_jose', {
+          intent: card.dataset.intentCard || '',
+          section: 'menu_sao_jose'
+        });
+      }
     });
   });
 
